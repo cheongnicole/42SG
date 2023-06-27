@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-char	*ft_putstr_non_printable(char *str)
+void	ft_putstr_non_printable(char *str)
 {
 	int	i;
 
@@ -34,5 +34,4 @@ char	*ft_putstr_non_printable(char *str)
 		}
 		i++;
 	}
-	return (str);
 }
