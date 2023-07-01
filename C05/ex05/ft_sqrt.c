@@ -2,7 +2,7 @@ int	ft_sqrt(int nb)
 {
 	long	i;
 
-	if (nb <= 0 || nb == 2 || nb == 3 || nb == 5)
+	if (nb <= 0 || nb == 2 || nb == 3)
 		return (0);
 	if (nb == 1)
 		return (1);
