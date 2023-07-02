@@ -12,7 +12,7 @@ OBJS	= $(SRCS:.c=.o)
 NAME	= libft.a
 
 CC	= cc
-CCFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 AR	= ar rcs
 
