@@ -5,7 +5,7 @@
 int is_delimiter(char c, char *charset)
 {
 	int i = 0;
-	while (charset[i] != c)
+	while (charset[i] && charset[i] != c)
 		i++;
 	if (charset[i] == '\0')
 		return (0);
@@ -34,7 +34,7 @@ char *ft_strndup(const char *str, int n)
 {
 	int i = 0;
 	char *result = malloc(n + 1);
-	while (str[i] || i <= n)
+	while (str[i] && i < n)
 	{
 		result[i] = str[i];
 		i++;
@@ -62,17 +62,20 @@ char **ft_split(char *str, char *charset)
 		}
 		while (str[i] && !is_delimiter(str[i], charset))
 			i++;
+		if (is_delimiter(str[i - 1], charset))
+			break;
 		end = i;
 		strings[count - 1] = ft_strndup(&str[start], end-start);
 	}
-	strings[count] = malloc(1);	
+	strings[count] = NULL;
 	return (strings);
 }
 
-int main(int argc, char *argv[])
+/*
+int main(void)
 {
-	char *str = "Hello World";
-	char *charset = " ";
+	char *str = ",World,,";
+	char *charset = ",";
 	char **strings;
 	strings = ft_split(str, charset);
 	int i = 0;
@@ -83,3 +86,4 @@ int main(int argc, char *argv[])
 	}
 	return (0);	
 }
+*/
