@@ -1,23 +1,39 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/04 11:01:07 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/04 11:44:10 by ncheong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 // returns 1 if c is in charset
-int is_delimiter(char c, char *charset)
+int	is_delimiter(char c, char *charset)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (charset[i] && charset[i] != c)
 		i++;
 	if (charset[i] == '\0')
 		return (0);
 	else
 		return (1);
-} 
+}
 
 // counts number of strings
 int	count_strings(char *str, char *charset)
 {
-	int i = 0;
-	int count = 0;
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
 	while (str[i])
 	{
 		while (str[i] && is_delimiter(str[i], charset))
@@ -30,60 +46,65 @@ int	count_strings(char *str, char *charset)
 	return (count);
 }
 
-char *ft_strndup(const char *str, int n)
+// counts string length until encounters delimiter
+int	ft_strlen_delim(const char *str, char *charset)
 {
-	int i = 0;
-	char *result = malloc(n + 1);
-	while (str[i] && i < n)
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!is_delimiter(str[i], charset))
+			i++;
+		else
+			break ;
+	}
+	return (i);
+}
+
+// malloc and dups the word found
+char	*ft_dup_word(const char *str, char *charset)
+{
+	int		i;
+	char	*result;
+	int		word_len;
+
+	i = 0;
+	word_len = ft_strlen_delim(str, charset);
+	result = (char *)malloc(word_len + 1);
+	while (i < word_len)
 	{
 		result[i] = str[i];
 		i++;
 	}
-	result[i] = '\0'; 
-	return result;
+	result[i] = '\0';
+	return (result);
 }
 
-char **ft_split(char *str, char *charset)
+// scans the string and calls ft_dup_word to extract the words
+// discarding the delimiters
+char	**ft_split(char *str, char *charset)
 {
-	int i = 0;
-	int count = 0;
-	int start = 0;
-	int end = 0;
-	char **strings = (char **)malloc(sizeof(char*) * (count_strings(str, charset) + 1));
+	int		i;
+	int		count;
+	char	**strings;
 
+	i = 0;
+	count = 0;
+	strings = (char **)malloc(sizeof(char *) * \
+					(count_strings(str, charset) + 1));
 	while (str[i])
 	{
 		while (str[i] && is_delimiter(str[i], charset))
 			i++;
 		if (str[i] != '\0')
 		{
-			start = i;
+			strings[count] = ft_dup_word(&str[i], charset);
 			count++;
 		}
 		while (str[i] && !is_delimiter(str[i], charset))
 			i++;
-		if (is_delimiter(str[i - 1], charset))
-			break;
-		end = i;
-		strings[count - 1] = ft_strndup(&str[start], end-start);
 	}
 	strings[count] = NULL;
 	return (strings);
 }
-
-/*
-int main(void)
-{
-	char *str = ",World,,";
-	char *charset = ",";
-	char **strings;
-	strings = ft_split(str, charset);
-	int i = 0;
-	while (strings[i])
-	{
-		printf("%s\n", strings[i]);
-		i++;
-	}
-	return (0);	
-}
-*/
