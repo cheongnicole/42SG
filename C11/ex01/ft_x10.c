@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_x10.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 16:23:42 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/04 16:38:05 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/04 17:11:35 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/04 17:12:16 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	*ft_map(int *tab, int length, int(*f)(int))
+int	ft_x10(int i)
 {
-	int	i;
-	int	*ret_tab;
-
-	i = 0;
-	ret_tab = malloc(length * sizeof(int));
-	if (!ret_tab)
-		return (NULL);
-	while (i < length)
-	{
-		ret_tab[i] = f(tab[i]);
-		i++;
-	}
-	return (ret_tab);
+	return (i * 10);
 }
