@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_any.c                                           :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 17:16:59 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/04 19:11:42 by ncheong          ###   ########.fr       */
+/*   Created: 2023/06/22 16:08:26 by ncheong           #+#    #+#             */
+/*   Updated: 2023/06/27 10:43:52 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-int	ft_any(char **tab, int(*f)(char*))
+int	ft_str_is_alpha(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i] != NULL)
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] != '\0')
 	{
-		if (f(tab[i]) != 0)
-			return (1);
-		i++;
+		if ((str[i] >= 'a' && str[i] <= 'z') || \
+			(str[i] >= 'A' && str[i] <= 'Z'))
+			i++;
+		else
+			return (0);
 	}
-	return (0);
+	return (1);
 }
