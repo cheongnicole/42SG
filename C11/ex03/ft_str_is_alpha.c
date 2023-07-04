@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 19:22:09 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/04 20:01:36 by ncheong          ###   ########.fr       */
+/*   Created: 2023/06/22 16:08:26 by ncheong           #+#    #+#             */
+/*   Updated: 2023/06/27 10:43:52 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int(*f)(char*))
+int	ft_str_is_alpha(char *str)
 {
 	int	i;
-	int	count;
 
 	i = 0;
-	count = 0;
-	while (i < length)
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] != '\0')
 	{
-		if (f(tab[i]) != 0)
-			count++;
-		i++;
+		if ((str[i] >= 'a' && str[i] <= 'z') || \
+			(str[i] >= 'A' && str[i] <= 'Z'))
+			i++;
+		else
+			return (0);
 	}
-	return (count);
+	return (1);
 }
