@@ -6,7 +6,7 @@
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 01:15:49 by ncheong           #+#    #+#             */
-/*   Updated: 2023/06/29 06:58:52 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/04 14:12:24 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	check_radix(char *radix)
 	j = 0;
 	while (radix[i])
 	{
-		if (radix[i] == '+' || radix[i] == '-')
+		if ((radix[i] >= 9 && radix[i] <= 13) || radix[i] == ' ' || \
+		radix[i] == '+' || radix[i] == '-')
 			return (0);
 		j = i + 1;
 		while (radix[j])
@@ -80,11 +81,11 @@ int	translate_base(char c, int radix, char *base)
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	result;
-	int	radix;
-	int	index;
+	int		radix;
+	int		index;
 
 	radix = check_radix(base);
 	if (!radix)
