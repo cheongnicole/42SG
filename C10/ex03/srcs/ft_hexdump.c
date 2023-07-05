@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:23:08 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/05 22:34:01 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 04:56:35 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	hexdump(int argc, char **argv, char *buffer)
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	char	*buffer;
 
 	if (!check_args(argc, argv))
