@@ -6,26 +6,27 @@
 #    By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 18:21:56 by ncheong           #+#    #+#              #
-#    Updated: 2023/07/05 22:46:44 by ncheong          ###   ########.fr        #
+#    Updated: 2023/07/06 06:50:19 by ncheong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_DIR	= ./srcs
 INC_DIR	= ./includes
 
-SRCS	= $(SRC_DIR)/ft_hexdump.c \
-	$(SRC_DIR)/ft_err_handle.c \
-	$(SRC_DIR)/ft_print_hex.c \
+SRCS	= $(SRC_DIR)/do-op.c \
+	$(SRC_DIR)/ft_ops.c \
 	$(SRC_DIR)/ft_strcmp.c \
-	$(SRC_DIR)/ft_strlen.c
+	$(SRC_DIR)/ft_putstr.c \
+	$(SRC_DIR)/ft_atoi.c \
+	$(SRC_DIR)/ft_putlnbr.c \
+	$(SRC_DIR)/ft_putchar.c
 
 OBJS	= $(SRCS:.c=.o)
 
-NAME	= ft_hexdump
+NAME	= do-op
 
 CC	= cc
-#CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= -g 
+CFLAGS	= -Wall -Wextra -Werror
 
 AR	= ar rcs
 
