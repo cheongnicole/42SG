@@ -6,7 +6,7 @@
 #    By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 18:21:56 by ncheong           #+#    #+#              #
-#    Updated: 2023/07/05 22:46:44 by ncheong          ###   ########.fr        #
+#    Updated: 2023/07/06 04:55:57 by ncheong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,7 @@ OBJS	= $(SRCS:.c=.o)
 NAME	= ft_hexdump
 
 CC	= cc
-#CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= -g 
+CFLAGS	= -Wall -Wextra -Werror
 
 AR	= ar rcs
 
