@@ -1,17 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:11:48 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/03 18:11:49 by ncheong          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_H
 # define FT_H
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <errno.h>
 
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);
