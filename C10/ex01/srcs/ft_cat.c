@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_cat.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 16:21:40 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/05 17:45:25 by ncheong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft.h"
 
 // ft_cat mimics cat command
@@ -5,14 +17,14 @@
 
 void	read_std_input(char *buffer)
 {
-	int	i;
+	int		i;
 	char	c;
 
 	i = 0;
 	while (read(0, &c, 1))
 	{
 		if (c == '\n')
-			break;
+			break ;
 		buffer[i] = c;
 		i++;
 	}
@@ -24,7 +36,7 @@ void	read_std_input(char *buffer)
 void	output_error(int err, char *filename)
 {
 	if (!err)
-		return;
+		return ;
 	write(2, "cat: ", 5);
 	write(2, filename, ft_strlen(filename));
 	write(2, ": ", 2);
@@ -32,12 +44,23 @@ void	output_error(int err, char *filename)
 	write(2, "\n", 1);
 }
 
+void	cat_output(int fd, char *buffer)
+{
+	int	count;
+
+	count = read(fd, buffer, 30000);
+	while (count)
+	{
+		write(1, buffer, count);
+		count = read(fd, buffer, 30000);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	char	buffer[30000];
-	int	i;
-	int	fd;
-	int	count;
+	int		i;
+	int		fd;
 
 	while (argc == 1)
 		read_std_input(buffer);
@@ -50,10 +73,7 @@ int	main(int argc, char **argv)
 		if (fd < 0)
 			output_error(errno, argv[i]);
 		else
-		{
-			while ((count = read(fd, buffer, 30000)))
-				write(1, buffer, count);
-		}
+			cat_output(fd, buffer);
 		close(fd);
 	}
 	return (0);
