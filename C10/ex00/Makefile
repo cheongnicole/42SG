@@ -1,4 +1,4 @@
-SRC_DIR	= ./
+SRC_DIR	= ./srcs
 INC_DIR	= ./
 
 SRCS	= $(SRC_DIR)/ft_display_file.c
