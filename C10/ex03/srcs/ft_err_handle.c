@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 22:23:32 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/05 22:25:23 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 09:29:08 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,3 @@ int	file_size(char *filename)
 	close(fd);
 	return (i);
 }
-
