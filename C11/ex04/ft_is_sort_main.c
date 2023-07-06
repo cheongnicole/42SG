@@ -6,7 +6,7 @@
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:55:07 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/04 21:23:32 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 17:16:16 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 #include <stddef.h>
 #include <string.h>
 
-int	ft_is_sort(int *tab, int length, int(*f)(int, int));
+int	ft_is_sort(int *tab, int length, int (*f)(int, int));
 
 int	ft_compare_int(int a, int b);
 
 int	main(void)
 {
-	int	tab[7];
+	/*
+	int	tab[26] = {7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 4, \
+		3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1};
+		*/
 	int	result;
 
-	tab[0] = 0;
-	tab[1] = 10;
-	tab[2] = 10;
-	tab[3] = 20;
-	tab[4] = 30;
-	tab[5] = 40;
-	tab[6] = 40;
-
-	result = ft_is_sort(&tab[0], 7, &ft_compare_int);
+	int	tab[10] = {-100, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	result = ft_is_sort(&tab[0], 10, &ft_compare_int);
 	if (result)
 		printf("table is sorted\n");
 	else
