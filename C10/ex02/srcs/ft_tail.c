@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:55:42 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/06 11:09:47 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 16:36:02 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,6 @@
 
 // ft_tail mimics tail command
 // only to be invoked with -c option
-
-// returns number of bytes to read if valid
-int	check_args(int argc, char **argv)
-{
-	int	bytes;
-
-	if (argc < 4)
-	{
-		print_error("invalid number of arguments", "");
-		return (0);
-	}
-	if (ft_strcmp(argv[1], "-c") != 0)
-	{
-		print_error("invalid option", argv[1]);
-		return (0);
-	}
-	bytes = ft_atoi(argv[2]);
-	if (bytes <= 0)
-	{
-		print_error("invalid number of bytes", argv[2]);
-		return (0);
-	}
-	return (bytes);
-}
 
 void	print_header(char *header)
 {
@@ -63,48 +39,51 @@ int	file_size(char *filename)
 	return (i);
 }
 
-void	print_tail(int bytes, char *filename)
+void	print_tail(int fd, int bytes, char *filename)
 {
-	int		fd;
 	int		start;
+	int		end;
 	char	*buffer;
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		output_error(errno, filename);
-	else
+	end = file_size(filename);
+	if (end < bytes)
 	{
-		if (file_size(filename) < bytes)
-			start = 0;
-		else
-			start = file_size(filename) - bytes;
-		if (file_size(filename) == 0)
-			return ;
-		buffer = (char *)malloc(start);
-		read(fd, buffer, start);
-		free(buffer);
-		buffer = (char *)malloc(bytes);
-		read(fd, buffer, bytes);
-		write(1, buffer, bytes);
-		free(buffer);
+		start = 0;
+		bytes = end;
 	}
-	close(fd);
+	else
+		start = end - bytes;
+	buffer = (char *)malloc(start);
+	read(fd, buffer, start);
+	free(buffer);
+	buffer = (char *)malloc(bytes);
+	read(fd, buffer, bytes);
+	write(1, buffer, bytes);
+	free(buffer);
 }
 
 int	main(int argc, char **argv)
 {
 	int	i;
+	int	fd;
 	int	bytes;
 
-	bytes = check_args(argc, argv);
-	if (!(bytes))
+	bytes = ft_atoi(argv[2]);
+	if (bytes == 0)
 		return (0);
 	i = 3;
 	while (i < argc)
 	{
 		if (argc > 4)
 			print_header(argv[i]);
-		print_tail(bytes, argv[i]);
+		fd = open(argv[i], O_RDONLY);
+		if (fd < 0)
+		{
+			output_error(errno, argv[i]);
+			break ;
+		}
+		print_tail(fd, bytes, argv[i]);
+		close(fd);
 		i++;
 		if (i != argc)
 			write(1, "\n", 1);

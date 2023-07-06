@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:03:41 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/05 18:32:06 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 16:13:39 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	output_error(int err, char *filename)
 {
 	if (!err)
 		return ;
-	write(2, "tail: ", 6);
+	write(2, "tail: cannot open '", 19);
 	write(2, filename, ft_strlen(filename));
-	write(2, ": ", 2);
+	write(2, "' for reading: ", 15);
 	write(2, strerror(err), ft_strlen(strerror(err)));
 	write(2, "\n", 1);
 }
