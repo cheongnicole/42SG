@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:55:42 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/05 18:10:48 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 11:09:47 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 // ft_tail mimics tail command
 // only to be invoked with -c option
-// With no FILE, or when FILE is -, read standard input
 
 // returns number of bytes to read if valid
 int	check_args(int argc, char **argv)
@@ -68,18 +67,19 @@ void	print_tail(int bytes, char *filename)
 {
 	int		fd;
 	int		start;
-	int		end;
 	char	*buffer;
 
-	while (ft_strcmp(filename, "-") == 0)
-		read_std_input();
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		output_error(errno, filename);
 	else
 	{
-		end = file_size(filename);
-		start = end - bytes;
+		if (file_size(filename) < bytes)
+			start = 0;
+		else
+			start = file_size(filename) - bytes;
+		if (file_size(filename) == 0)
+			return ;
 		buffer = (char *)malloc(start);
 		read(fd, buffer, start);
 		free(buffer);
@@ -106,6 +106,8 @@ int	main(int argc, char **argv)
 			print_header(argv[i]);
 		print_tail(bytes, argv[i]);
 		i++;
+		if (i != argc)
+			write(1, "\n", 1);
 	}
 	return (0);
 }
