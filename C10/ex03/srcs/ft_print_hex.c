@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:23:08 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/05 22:41:56 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 09:40:50 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_hex_addr(int buf_pos)
 {
 	int		i;
-	char	buffer[10];
+	char	buffer[8];
 
 	i = 0;
 	while (i < 8)
@@ -24,9 +24,7 @@ void	print_hex_addr(int buf_pos)
 		"0123456789abcdef"[(buf_pos >> (7 - i) * 4) & 0xf];
 		i++;
 	}
-	buffer[i] = ' ';
-	buffer[i + 1] = ' ';
-	write(1, buffer, 10);
+	write(1, buffer, 8);
 }
 
 void	print_hex_contents(char *buffer, unsigned int count)
@@ -34,6 +32,7 @@ void	print_hex_contents(char *buffer, unsigned int count)
 	unsigned int	i;
 	unsigned char	*to_print;
 
+	write(1, "  ", 2);
 	i = 0;
 	while (i < count)
 	{
