@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:19:05 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/06 06:51:59 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 18:56:51 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 int		ft_strcmp(char *s1, char *s2);
 void	ft_putstr(char *str);
 int		ft_atoi(char *str);
+void	ft_putnbr(int nbr);
 void	ft_putlnbr(long lnbr);
 void	ft_putchar(char c);
 void	op_add(int val1, int val2);
