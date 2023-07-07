@@ -31,7 +31,7 @@ void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 
 	i = 0;
 	count = count_strings(tab);
-	while (i < count)
+	while (i < count - 1)
 	{
 		j = i + 1;
 		while (j < count)
