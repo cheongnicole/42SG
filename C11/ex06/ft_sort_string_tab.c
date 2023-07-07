@@ -48,7 +48,7 @@ void	ft_sort_string_tab(char **tab)
 
 	i = 0;
 	count = count_strings(tab);
-	while (i < count)
+	while (i < count - 1)
 	{
 		j = i + 1;
 		while (j < count)
