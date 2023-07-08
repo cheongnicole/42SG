@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:55:42 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/06 16:36:02 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/08 19:48:13 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 // ft_tail mimics tail command
 // only to be invoked with -c option
 
-void	print_header(char *header)
+void	print_header(char *header, int *first)
 {
+	if (*first)
+		write(1, "\n", 1);
+	(*first)++;
 	ft_putstr("==> ");
 	if (ft_strcmp(header, "-") == 0)
 		ft_putstr("standard input");
@@ -25,68 +28,64 @@ void	print_header(char *header)
 	ft_putstr(" <==\n");
 }
 
-int	file_size(char *filename)
+void	print_tail(int fd, int count)
 {
-	int		i;
-	int		fd;
-	char	c;
+	char	*buf;
+	int		size;
 
-	fd = open(filename, O_RDONLY);
-	i = 0;
-	while (read(fd, &c, 1))
-		i++;
-	close(fd);
-	return (i);
-}
-
-void	print_tail(int fd, int bytes, char *filename)
-{
-	int		start;
-	int		end;
-	char	*buffer;
-
-	end = file_size(filename);
-	if (end < bytes)
-	{
-		start = 0;
-		bytes = end;
-	}
+	buf = (char *)malloc(2147483647);
+	size = read(fd, buf, 2147483647);
+	if (size < count)
+		write(1, buf, size);
 	else
-		start = end - bytes;
-	buffer = (char *)malloc(start);
-	read(fd, buffer, start);
-	free(buffer);
-	buffer = (char *)malloc(bytes);
-	read(fd, buffer, bytes);
-	write(1, buffer, bytes);
-	free(buffer);
+		write(1, buf + size - count, count);
+	free(buf);
 }
 
-int	main(int argc, char **argv)
+void	ft_tail(int argc, char **argv, int count)
 {
-	int	i;
-	int	fd;
-	int	bytes;
+	int		fd;
+	int		i;
+	int		j;
 
-	bytes = ft_atoi(argv[2]);
-	if (bytes == 0)
-		return (0);
 	i = 3;
+	j = 0;
 	while (i < argc)
 	{
-		if (argc > 4)
-			print_header(argv[i]);
-		fd = open(argv[i], O_RDONLY);
+		if (argv[i][0] == '-')
+			fd = 0;
+		else
+			fd = open(argv[i], O_RDONLY);
 		if (fd < 0)
 		{
 			output_error(errno, argv[i]);
-			break ;
+			i++;
+			continue ;
 		}
-		print_tail(fd, bytes, argv[i]);
+		if (argc > 4)
+			print_header(argv[i], &j);
+		print_tail(fd, count);
 		close(fd);
 		i++;
-		if (i != argc)
-			write(1, "\n", 1);
+	}
+}	
+
+int	main(int argc, char **argv)
+{
+	int		count;
+	int		fd;
+	int		i;
+	int		j;
+
+	if (argc >= 3)
+	{
+		count = ft_atoi(argv[2]);
+		if (!count)
+			return (0);
+		if (argc == 3)
+			print_tail(0, count);
+		else
+			ft_tail(argc, argv, count);
 	}
 	return (0);
 }
