@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 23:50:56 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/06 00:04:50 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/08 19:01:51 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	count_strings(char **tab)
 	return (i);
 }
 
-void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int		i;
 	int		j;
@@ -31,6 +31,8 @@ void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 
 	i = 0;
 	count = count_strings(tab);
+	if (count < 2)
+		return ;
 	while (i < count - 1)
 	{
 		j = i + 1;
