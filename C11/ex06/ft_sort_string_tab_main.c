@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 23:24:25 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/05 23:47:38 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/06 11:41:13 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_sort_string_tab(char **tab);
 
 int	main(void)
 {
-	int i = 0;
-	char *tab[10];
+	int		i;
+	char	*tab[10];
 
 	tab[0] = "first 2";
 	tab[1] = "second 4";
@@ -27,7 +27,7 @@ int	main(void)
 	tab[4] = "fifth 1";
 	tab[5] = "six 5";
 	tab[6] = NULL;
-
+	i = 0;
 	ft_sort_string_tab(tab);
 	while (tab[i])
 	{
