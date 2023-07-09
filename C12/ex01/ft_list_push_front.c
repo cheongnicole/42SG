@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 00:47:04 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/09 00:47:06 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/09 22:19:28 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_list_push_front(t_list **begin_list, void *data)
 
 	new = ft_create_elem(data);
 	new->next = *begin_list;
-	begin_list = &new;
+	*begin_list = new;
 }
