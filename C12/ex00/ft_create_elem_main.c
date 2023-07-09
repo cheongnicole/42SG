@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_create_elem_main.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
+/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 23:01:05 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/09 00:52:41 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/06 20:33:50 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/06 20:37:34 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include <stdio.h>
+#include "ft_list.h"
 
-# include <stdlib.h>
-# include <stddef.h>
-
-typedef struct s_list
+int	main(void)
 {
-	struct s_list	*next;
-	void			*data;
-}					t_list;
-
-t_list	*ft_create_elem(void *data);
-
-#endif
+	t_list	*new;
+	char	str[] = "My new t_list";
+	
+	new = ft_create_elem(str);
+	printf("%s\n", (char *)new->data);
+	return (0);
+}
