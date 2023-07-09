@@ -12,37 +12,23 @@
 
 #include <stddef.h>
 
-int	count_strings(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i] != NULL)
-		i++;
-	return (i);
-}
-
 void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int		i;
 	int		j;
-	int		count;
 	char	*tmp;
 
 	i = 0;
-	count = count_strings(tab);
-	if (count < 2)
-		return ;
-	while (i < count - 1)
+	while (tab[i + 1])
 	{
 		j = i + 1;
-		while (j < count)
+		while (tab[j])
 		{
-			if (cmp(tab[i], tab[j]) > 0)
+			if ((*cmp)(tab[j], tab[i]) <= 0)
 			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
+				tmp = tab[j];
+				tab[j] = tab[i];
+				tab[i] = tmp;
 			}
 			j++;
 		}
