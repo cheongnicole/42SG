@@ -6,7 +6,7 @@
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 10:45:52 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/10 10:50:23 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/10 14:22:49 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef struct s_map
 {
-	char	plein;
-	char	vide;
+	char	full;
+	char	empty;
 	char	obstacle;
 	int		line_nbr;
 	int		line_size;
