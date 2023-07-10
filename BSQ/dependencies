@@ -1,0 +1,53 @@
+----- STRUCTURES -----
+typedef struct s_map
+{
+	char	full;
+	char	empty;
+	char	obstacle;
+	int	line_nbr;
+	int	line_size;
+	char	**tab;
+} t_map;
+
+typedef struct s_square
+{
+	int	pos_x;
+	int	pos_y;
+	int	size;
+} t_square;
+
+----- FILES -----							----- CALLED BY -----
+utils.c
+	int	ft_strlen(char *str)					print_and_free|check_first_line|add_letter
+	int	free_tab(char **tab, int i, int err)			check_first_line|make_tab
+	int	ft_atoi(char *str, int j)				first_line
+	void	*ft_error(void)						first_line
+	int	ft_int_error(void)					make_tab
+
+first_line.c
+	t_map	*first_line(char *str)					ft_one_arg|main
+
+get_line.c
+	static char	*add_letter(char *str, char c)			get_line
+	char	*get_line(int fd)					ft_one_arg|main|check_first_line
+
+get_full_line.c
+	char	*get_full_line(int fd, int size)			main
+
+main.c
+	int	main(int ac, char **av)
+	static void	print_and_free(t_map *map)			main
+	static void	ft_one_arg(void)				main
+
+make_tab.c
+	static int	check_line(t_map *map, int i, int fd)		check_first_line|make_tab
+	static int	check_first_line(t_map *map, int fd)		make_tab
+	int	make_tab(int fd, t_map *map)				ft_one_arg|main
+
+resolv.c
+	static t_square init_square(int y, int x, int size)			resolv
+	static int	calc_size_square(int y, int x, t_map map, int size)	resolv
+	static void	modif_map(t_square square, t_map *map)			resolv
+	void	resolv(t_map *map)						main
+
+
