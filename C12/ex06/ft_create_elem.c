@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_clear.c                                    :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:02:36 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 18:23:05 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/08 23:08:27 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/09 00:46:37 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void    ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
+t_list	*ft_create_elem(void *data)
 {
-	t_list	*cur;
+	t_list	*new;
 
-	while (begin_list->next)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new)
 	{
-		cur = begin_list;
-		begin_list = cur->next;
-		(*free_fct)(cur);
+		new->next = NULL;
+		new->data = data;
 	}
-	(*free_fct)(begin_list);
+	return (new);
 }

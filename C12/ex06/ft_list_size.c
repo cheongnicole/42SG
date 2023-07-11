@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_clear.c                                    :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:02:36 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 18:23:05 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/09 00:47:28 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/09 00:47:32 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void    ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
+int	ft_list_size(t_list *begin_list)
 {
+	int		i;
 	t_list	*cur;
 
-	while (begin_list->next)
+	if (begin_list == NULL)
+		return (0);
+	i = 1;
+	cur = begin_list;
+	while (cur->next != NULL)
 	{
-		cur = begin_list;
-		begin_list = cur->next;
-		(*free_fct)(cur);
+		cur = cur->next;
+		i++;
 	}
-	(*free_fct)(begin_list);
+	return (i);
 }
