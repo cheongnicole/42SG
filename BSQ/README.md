@@ -1,9 +1,9 @@
 # BSQ
 
-# map_generator: random map generator
+map_generator: random map generator
 	to run, type ./map_generator <col> <row> <density>
 
-# dependencies: shows functions' callers
+dependencies: shows functions' callers
 
 BSQ.pdf: algorithm flow at a glance
 
