@@ -1,7 +1,7 @@
 # BSQ
 
 <strong>map_generator:</strong> random map generator<br />
-&emsp;to run, type <strong>./map_generator <col> <row> <density></strong>
+&emsp;to run, type <strong>./map_generator [col] [row] [density]</strong>
 
 <strong>dependencies:</strong> shows functions' callers
 
