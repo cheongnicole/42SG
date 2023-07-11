@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 08:23:09 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/10 08:42:50 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/11 14:28:06 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	move_queen(int board[10][10], int row, int col)
 		i = -1;
 	else
 		i = 1;
-	j = 0;
-	while (j < 10)
+	j = -1;
+	while (++j < 10)
 	{
 		board[row][j] += i;
 		board[j][col] += i;
@@ -59,7 +59,6 @@ void	move_queen(int board[10][10], int row, int col)
 			board[row - j][col + j] += i;
 		if (row + j < 10 && col - j >= 0)
 			board[row + j][col - j] += i;
-		j++;
 	}
 	if (i == 1)
 		board[row][col] = 0;
