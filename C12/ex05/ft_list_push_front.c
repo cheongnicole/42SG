@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_strs.c                                :+:      :+:    :+:   */
+/*   ft_list_push_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 15:12:14 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 17:55:09 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/09 00:47:04 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/09 22:19:28 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_push_strs(int size, char **strs)
+void	ft_list_push_front(t_list **begin_list, void *data)
 {
-	int	i;
+	t_list	*new;
 
-	t_list	*begin_list;
-
-	if (strs[0])
-		begin_list = ft_create_elem(strs[0]);
-	i = 0;
-	while (++i < size && strs[i])
-		ft_list_push_front(&begin_list, strs[i]);
-	return (begin_list);
+	new = ft_create_elem(data);
+	new->next = *begin_list;
+	*begin_list = new;
 }
