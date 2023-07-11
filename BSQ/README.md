@@ -1,7 +1,7 @@
 # BSQ
 
 <strong>map_generator:</strong> random map generator<br />
-<tab>to run, type ./map_generator <col> <row> <density>
+    to run, type ./map_generator <col> <row> <density>
 
 dependencies: shows functions' callers
 
