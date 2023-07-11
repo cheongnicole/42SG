@@ -20,3 +20,6 @@
 
 <strong>bad_maps:</strong> some bad maps
 
+<strong>eval_others.sh:</strong> run other's BSQ and compare with our expected results<br />
+&emsp;type <strong>./eval_others.sh</strong><br />
+&emsp;Note: traces are in files <strong>ours / yours</strong>
