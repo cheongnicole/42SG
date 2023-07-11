@@ -1,6 +1,6 @@
 # BSQ
 
-map_generator: random map generator
+<h1>map_generator:</h1> random map generator<br />
 to run, type ./map_generator <col> <row> <density>
 
 dependencies: shows functions' callers
