@@ -6,7 +6,7 @@
 /*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 23:01:05 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/09 00:52:41 by ncheong          ###   ########.fr       */
+/*   Updated: 2023/07/11 14:43:05 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ typedef struct s_list
 }					t_list;
 
 t_list	*ft_create_elem(void *data);
+void	ft_list_push_front(t_list **begin_list, void *data);
+int	ft_list_size(t_list *begin_list);
+t_list	*ft_list_last(t_list *begin_list);
 
 #endif
