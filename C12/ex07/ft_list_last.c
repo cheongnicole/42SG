@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_list_last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:41:16 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 21:26:58 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/09 00:48:37 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/11 14:44:09 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+t_list	*ft_list_last(t_list *begin_list)
 {
+	int		i;
 	t_list	*cur;
-	unsigned int	i;
 
-	if (nbr == 0)
-		return (begin_list);
+	if (begin_list == NULL)
+		return (NULL);
 	i = 1;
 	cur = begin_list;
-	while (i <= nbr && cur->next)
+	while (cur->next != NULL)
 	{
 		cur = cur->next;
 		i++;
 	}
-	if (nbr >= i)
-		return (NULL);
 	return (cur);
 }

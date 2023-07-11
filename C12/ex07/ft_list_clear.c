@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:41:16 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 21:26:58 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/11 18:02:36 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/11 18:23:05 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+void    ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
 {
 	t_list	*cur;
-	unsigned int	i;
 
-	if (nbr == 0)
-		return (begin_list);
-	i = 1;
-	cur = begin_list;
-	while (i <= nbr && cur->next)
+	while (begin_list->next)
 	{
-		cur = cur->next;
-		i++;
+		cur = begin_list;
+		begin_list = cur->next;
+		(*free_fct)(cur);
 	}
-	if (nbr >= i)
-		return (NULL);
-	return (cur);
+	(*free_fct)(begin_list);
 }

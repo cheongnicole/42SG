@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_list_push_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:41:16 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 21:26:58 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/09 00:47:04 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/09 22:19:28 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+void	ft_list_push_front(t_list **begin_list, void *data)
 {
-	t_list	*cur;
-	unsigned int	i;
+	t_list	*new;
 
-	if (nbr == 0)
-		return (begin_list);
-	i = 1;
-	cur = begin_list;
-	while (i <= nbr && cur->next)
-	{
-		cur = cur->next;
-		i++;
-	}
-	if (nbr >= i)
-		return (NULL);
-	return (cur);
+	new = ft_create_elem(data);
+	new->next = *begin_list;
+	*begin_list = new;
 }

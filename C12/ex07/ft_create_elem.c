@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncheong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ncheong <ncheong@student.42singapore.sg>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:41:16 by ncheong           #+#    #+#             */
-/*   Updated: 2023/07/11 21:26:58 by ncheong          ###   ########.fr       */
+/*   Created: 2023/07/08 23:08:27 by ncheong           #+#    #+#             */
+/*   Updated: 2023/07/09 00:46:37 by ncheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+t_list	*ft_create_elem(void *data)
 {
-	t_list	*cur;
-	unsigned int	i;
+	t_list	*new;
 
-	if (nbr == 0)
-		return (begin_list);
-	i = 1;
-	cur = begin_list;
-	while (i <= nbr && cur->next)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new)
 	{
-		cur = cur->next;
-		i++;
+		new->next = NULL;
+		new->data = data;
 	}
-	if (nbr >= i)
-		return (NULL);
-	return (cur);
+	return (new);
 }
