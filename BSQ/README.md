@@ -21,5 +21,7 @@
 <strong>bad_maps:</strong> some bad maps
 
 <strong>eval_others.sh:</strong> run other's BSQ and compare with our expected results<br />
+&emsp;copy the other's BSQ to current folder and name it as <strong>your_bsq</strong><br />
+&emsp;our current executable should be named <strong>bsq</strong> in the current folder<br />
 &emsp;type <strong>./eval_others.sh</strong><br />
 &emsp;Note: traces are in files <strong>ours / yours</strong>
