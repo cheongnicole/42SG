@@ -5,7 +5,7 @@
 
 <strong>dependencies:</strong> shows functions' callers
 
-<strong>BSQ.pdf:</strong> algorithm flow at a glance
+<strong>BSQ_overview.pdf:</strong> algorithm flow at a glance
 
 <strong>Makefile:</strong> makes bsq executable from srcs & includes<br />
 &emsp;type <strong>make</strong><br />
