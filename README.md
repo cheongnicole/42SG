@@ -22,3 +22,17 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex07 ft_rev_int_tab](C01/ex07)\
 [ex08 ft_sort_int_tab](C01/ex08)
 ## C02
+[ex00 ft_strcpy](C02/ex00)\
+[ex01 ft_strncpy](C02/ex01)\
+[ex02 ft_str_is_alpha](C02/ex02)\
+[ex03 ft_str_is_numeric](C02/ex03)\
+[ex04 ft_str_is_lowercase](C02/ex04)\
+[ex05 ft_str_is_uppercase](C02/ex05)\
+[ex06 ft_str_is_printable](C02/ex06)\
+[ex07 ft_strupcase](C02/ex07)\
+[ex08 ft_strlowcase](C02/ex08)\
+[ex09 ft_strcapitalize](C02/ex09)\
+[ex10 ft_strlcpy](C02/ex10)\
+[ex11 ft_putstr_non_printable](C02/ex11)\
+[ex12 ft_print_memory](C02/ex12)
+
