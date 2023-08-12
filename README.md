@@ -59,3 +59,9 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex06 ft_is_prime](C05/ex06)\
 [ex07 ft_find_next_prime](C05/ex07)\
 [ex08 10_queens_main](C05/ex08)
+## C06
+[ex00 ft_print_program_name](C06/ex00)\
+[ex01 ft_print_params](C06/ex01)\
+[ex02 ft_rev_params](C06/ex02)\
+[ex03 ft_sort_params](C06/ex03)
+
