@@ -64,4 +64,11 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex01 ft_print_params](C06/ex01)\
 [ex02 ft_rev_params](C06/ex02)\
 [ex03 ft_sort_params](C06/ex03)
-
+## C07
+[ex00 ft_strdup](C07/ex00)\
+[ex01 ft_range](C07/ex01)\
+[ex02 ft_ultimate_range](C07/ex02)\
+[ex03 ft_strjoin](C07/ex03)\
+[ex04 ft_convert_base](C07/ex04)\
+[ex05 ft_split](C07/ex05)
+## C08
