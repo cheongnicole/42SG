@@ -72,3 +72,9 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex04 ft_convert_base](C07/ex04)\
 [ex05 ft_split](C07/ex05)
 ## C08
+[ex00 ft.h](C08/ex00)\
+[ex01 ft_boolean.h](C08/ex01)\
+[ex02 ft_abs.h](C08/ex02)\
+[ex03 ft_point.h](C08/ex03)\
+[ex04 ft_strs_to_tab](C08/ex04)\
+[ex05 ft_show_tab](C08/ex05)
