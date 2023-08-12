@@ -115,3 +115,13 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex15 ft_list_reverse_fun](C12/ex15)\
 [ex16 ft_sorted_list_insert](C12/ex16)\
 [ex17 ft_sorted_list_merge](C12/ex17)
+## C13
+[ex00 btree_create_node](C13/ex00)\
+[ex01 btree_apply_prefix](C13/ex01)\
+[ex02 btree_apply_infix](C13/ex02)\
+[ex03 btree_apply_suffix](C13/ex03)\
+[ex04 btree_insert_data](C13/ex04)\
+[ex05 btree_search_item](C13/ex05)\
+[ex06 btree_level_count](C13/ex06)\
+[ex07 btree_apply_by_level](C13/ex07)
+
