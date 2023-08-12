@@ -35,4 +35,12 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex10 ft_strlcpy](C02/ex10)\
 [ex11 ft_putstr_non_printable](C02/ex11)\
 [ex12 ft_print_memory](C02/ex12)
+## C03
+[ex00 ft_strcmp](C03/ex00)\
+[ex01 ft_strncmp](C03/ex01)\
+[ex02 ft_strcat](C03/ex02)\
+[ex03 ft_strncat](C03/ex03)\
+[ex04 ft_strstr](C03/ex04)\
+[ex05 ft_strlcat](C03/ex05)
+## C04
 
