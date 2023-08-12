@@ -43,4 +43,10 @@ Not guaranteed correct. Peek at your own risk ;)
 [ex04 ft_strstr](C03/ex04)\
 [ex05 ft_strlcat](C03/ex05)
 ## C04
+[ex00 ft_strlen](C04/ex00)\
+[ex01 ft_putstr](C04/ex01)\
+[ex02 ft_putnbr](C04/ex02)\
+[ex03 ft_atoi](C04/ex03)\
+[ex04 ft_putnbr_base](C04/ex04)\
+[ex05 ft_atoi_base](C04/ex05)
 
